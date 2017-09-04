@@ -1,7 +1,7 @@
 > test-productman
 
 # Goal
-Build a simple web app using both [Angular](https://angular.io/tutorial) and [Django](https://www.djangoproject.com/) and this project as the starting point.
+Build a simple web app using both [Angular](https://angular.io/) and [Django](https://www.djangoproject.com/) and this project as the starting point.
 
 The scope of the application is up to you, even if we recommend something simple such as [Angular Tour of Heroes](https://angular.io/tutorial).
 
@@ -35,10 +35,9 @@ $ pyenv install 3.6.2
 $ pyenv virtualenv 3.6.2 test-productman
 $ pip install -U pip
 $ pip install -r requirements.dev.txt
-$ python manage.py collectstatic  --noinput
 ```
 
-## setup development DB
+## Setup development DB
 Make sure [docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/) is installed then:
 ```shell
 $ docker run --name test-productman-postgres -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=dev -p 5432:5432 -d postgres
