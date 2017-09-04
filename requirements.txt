@@ -1,0 +1,7 @@
+Django==1.11.4
+gunicorn==19.7.1
+psycopg2==2.7.3
+whitenoise==3.3.0
+django-extensions
+dj-database-url==0.4.2
+djangorestframework==3.6.4

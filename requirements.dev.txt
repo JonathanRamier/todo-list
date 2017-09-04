@@ -1,0 +1,11 @@
+-r requirements.txt
+
+# Testing
+pytest-django
+
+# Lint and code style
+flake8==3.3.0
+
+# utils
+ipython
+pydotplus
