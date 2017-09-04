@@ -16,11 +16,11 @@
         "test:server": "python manage.py check && python manage.py test",
         "dev:start": "concurrently --kill-others \"yarn dev:start-server\" \"yarn dev:build\" \"yarn dev:wds\"",
         "dev:build": "ng build --watch --no-progress --deploy-url http://localhost:4200/",
-        "dev:wds": "ng serve --disable-host-check --no-progress",
+        "dev:wds": "ng serve --no-progress",
         "dev:start-server": "python manage.py runserver 4300",
         "precommit": "yarn lint",
         "preversion": "yarn test:all",
-        "pretest": "[ -d dist ] || yarn build" 
+        "pretest": "[ -d dist ] || yarn build"
     },
     "dependencies": {
         "@angular/cli": "^1.2.6",

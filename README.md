@@ -44,7 +44,7 @@ $ docker run --name test-productman-postgres -e POSTGRES_PASSWORD=pwd -e POSTGRE
 $ python manage.py migrate
 ```
 
-## nodejs
+## setup NodeJS and install dependencies
 ```shell
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.3/install.sh | bash
 $ nvm install 8.4
