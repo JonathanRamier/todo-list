@@ -1,4 +1,4 @@
-> test-productman
+> basic onboarding exercise for fullstack web developers
 
 # Goal
 Build a simple web app using both [Angular](https://angular.io/) and [Django](https://www.djangoproject.com/) and this project as the starting point.
@@ -23,7 +23,7 @@ __NOTES__:
 Fork this repo then:
 ```shell
 $ cd ~/path/to/your/projects/dir
-$ git clone git@github.com:<USER>/test-productman.git
+$ git clone git@github.com:<USER>/test-fullstack.git
 ```
 
 NOTE: add `nicolaspanel` as collaborator of the Fork.
@@ -32,7 +32,7 @@ NOTE: add `nicolaspanel` as collaborator of the Fork.
 Install pyenv following https://github.com/pyenv/pyenv-installer then:
 ```shell
 $ pyenv install 3.6.2
-$ pyenv virtualenv 3.6.2 test-productman
+$ pyenv virtualenv 3.6.2 test-fullstack
 $ pip install -U pip
 $ pip install -r requirements.dev.txt
 ```
@@ -40,7 +40,7 @@ $ pip install -r requirements.dev.txt
 ## Setup development DB
 Make sure [docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/) is installed then:
 ```shell
-$ docker run --name test-productman-postgres -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=dev -p 5432:5432 -d postgres
+$ docker run --name test-fullstack-postgres -e POSTGRES_PASSWORD=pwd -e POSTGRES_USER=dev -p 5432:5432 -d postgres
 $ python manage.py migrate
 ```
 
