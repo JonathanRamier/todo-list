@@ -25,7 +25,7 @@ DIST_DIR = os.path.join(PROJECT_ROOT, 'dist')
 SECRET_KEY = 'yx=s(9cm(nh7qndfz&txt9r5pm35-(vf+h%&=oic&%971mch82'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ['*'])
 
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'server.core',
-    'server.apiv1',
 ]
 
 MIDDLEWARE = [
@@ -85,8 +84,6 @@ DATABASES = {
         'PASSWORD': 'pwd',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'TEST': {'ENGINE': 'django.db.backends.sqlite3',
-                 'NAME': os.path.join(BASE_DIR, 'test_db.sqlite3')}
     }
 }
 
@@ -122,9 +119,3 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATICFILES_DIRS = (
     DIST_DIR,
 )
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ],
-}

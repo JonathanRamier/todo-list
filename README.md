@@ -1,26 +1,39 @@
 > basic onboarding exercise for fullstack web developers
 
 # Goal
-Build a simple web app using both [Angular](https://angular.io/) and [Django](https://www.djangoproject.com/) and this project as the starting point.
+Build a simple TODO web app using both [Angular](https://angular.io/) and [Django](https://www.djangoproject.com/) and this project as the starting point.
 
-The scope of the application is up to you, even if we recommend something simple such as [Angular Tour of Heroes](https://angular.io/tutorial).
+The application is composed of 2 pages:
+ - the `landing` page: for unauthenticated users
+   
+   __Required__: enable user to sign in / sign up using email & password (no email verification)
+   
+   __Hint__: try do make something pretty but do not spend to much time on it
+    
+ - the `home` page: for authenticated users
+   
+   __Required__: 
+     - the user can add, edit, remove todos
+     - the number of todos is displayed and updated dynamically (see [Angular Pipes](https://angular.io/guide/pipes))
+     - the user can logout 
+   
+   __Hint__: use [TodoMVC](http://todomvc.com/)'s UX/UI as much as possible
+
 
 __Expected outcome__:
- - at least one [db model](https://docs.djangoproject.com/en/1.11/topics/db/models/)
+ - a [django db model](https://docs.djangoproject.com/en/1.11/topics/db/models/) for the todos
  - a few REST endpoints
- - well organized / tested application following both [Angular](https://angular.io/tutorial)'s and [Django](https://www.djangoproject.com/)'s best practices
+ - manage the state of the application using [ngrx](https://github.com/ngrx/platform)
+ - well organized & tested application following both [Angular](https://angular.io/tutorial)'s and [Django](https://www.djangoproject.com/)'s best practices
 
 __NOTES__:
- - do NOT change `package.json` scripts
+ - do NOT change `package.json#scripts` (ie `test`, `dev:start`, etc.) 
  - on your final release, make sure all tests / linters are passing (`yarn test:all`)
  - use `angular-cli` as much as possible
- - implement endpoints in `server/apiv1` using [django-rest-framework viewsets](http://www.django-rest-framework.org/api-guide/viewsets/)
- - use [Django Fixtures](https://docs.djangoproject.com/en/1.11/howto/initial-data/) to pre-populate your database with hard-coded data
- - we __strongly__ encourage [Pycharm CE](https://www.jetbrains.com/pycharm/download/) for backend development and [vscode](https://code.visualstudio.com/) for frontend development.
 
 
-# Setup
-Fork this repo then:
+# Project Setup
+__Fork this repo__ then:
 ```shell
 $ cd ~/path/to/your/projects/dir
 $ git clone git@github.com:<USER>/test-fullstack.git
@@ -47,8 +60,8 @@ $ python manage.py migrate
 ## Setup NodeJS and install dependencies
 ```shell
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.3/install.sh | bash
-$ nvm install 8.4
-$ nvm use 8.4
+$ nvm install 8.6
+$ nvm use 8.6
 $ npm install -g yarn
 $ yarn install
 ```

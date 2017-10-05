@@ -1,13 +1,17 @@
+{% load json_encoder %}
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Test Productman</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="static/client/assets/favicon.png">
+    <meta charset="utf-8">
+    <title>Test Full Stack Productman</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="static/client/assets/favicon.png">
 </head>
 <body>
-  <app-root></app-root>
+<app-root></app-root>
+<script type="text/javascript">
+    window.STATE = JSON.parse('{{ state | json | safe }}');
+</script>
 </body>
 </html>
