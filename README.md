@@ -8,7 +8,7 @@ The application is composed of 2 pages:
    
    __Required__: enable user to sign in / sign up using email & password (no email verification)
    
-   __Hint__: try do make something pretty but do not spend to much time on it
+   __Tips__: try do make something pretty but do not spend to much time on it
     
  - the `home` page: for authenticated users
    
@@ -17,7 +17,7 @@ The application is composed of 2 pages:
      - the number of todos is displayed and updated dynamically (see [Angular Pipes](https://angular.io/guide/pipes))
      - the user can logout 
    
-   __Hint__: use [TodoMVC](http://todomvc.com/)'s UX/UI as much as possible
+   __Tips__: use [TodoMVC](http://todomvc.com/)'s UX/UI as much as possible
 
 
 __Expected outcome__:
@@ -27,8 +27,7 @@ __Expected outcome__:
  - well organized & tested application following both [Angular](https://angular.io/tutorial)'s and [Django](https://www.djangoproject.com/)'s best practices
 
 __NOTES__:
- - do NOT change `package.json#scripts` (ie `test`, `dev:start`, etc.) 
- - on your final release, make sure all tests / linters are passing (`yarn test:all`)
+ - do NOT change `package.json#scripts` (ie `test`, `dev:start`, etc.)
  - use `angular-cli` as much as possible
 
 
@@ -70,7 +69,7 @@ $ yarn install
 
 Run `yarn dev:start` to start the development server then navigate to http://localhost:4300/.
 
-NOTE: The app will automatically reload if you change any of the source files.
+NOTE: The app will automatically reload if you change any of the source files (using webpack hmr).
 
 ## Test
 Run `yarn test:all` to test the entire project.
