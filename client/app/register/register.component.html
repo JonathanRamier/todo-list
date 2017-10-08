@@ -1,0 +1,11 @@
+<div class="log-form">
+    <h2>Inscription</h2>
+    <form [formGroup]="registrationForm" novalidate>
+        <input type="email" formControlName="email" placeholder="Email"/>
+        <input type="password" formControlName="password" placeholder="Mot de passe"/>
+        <input type="text" formControlName="first_name" placeholder="Prenom"/>
+        <input type="text" formControlName="last_name" placeholder="Nom"/>
+        <button type="submit" class="btn" (click)="createUser()">Créer</button>
+        <a class="register" href="#" (click)="goToLogin()">connexion</a>
+    </form>
+</div>

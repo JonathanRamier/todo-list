@@ -1,0 +1,84 @@
+.log-form {
+    width: 40%;
+    min-width: 320px;
+    max-width: 475px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.log-form form {
+    display: block;
+    width: 100%;
+    padding: 2em;
+}
+
+.log-form h2 {
+    color: #5d5d5d;
+    font-size: 1.35em;
+    display: block;
+    background: #b9eaff;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 0.75em 1em 0.75em 1.5em;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(29, 29, 29, 0);
+    margin: 0;
+    font-weight: 200;
+}
+
+.log-form input {
+    display: block;
+    width: 100%;
+    margin: auto auto 2em;
+    border: 0;
+    border-bottom: 1px solid #eaeaea;
+    padding: 0.5em 0 1.25em;
+    color: #757575;
+}
+
+.log-form input:focus {
+    outline: none;
+}
+
+.log-form .btn {
+    display: inline-block;
+    background: #1fb5bf;
+    border: 1px solid #1ba0a9;
+    padding: 0.5em 2em;
+    color: white;
+    margin-right: 0.5em;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.log-form .btn:hover {
+    background: #23cad5;
+}
+
+.log-form .btn:active {
+    background: #1fb5bf;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.log-form .btn:focus {
+    outline: none;
+}
+
+.log-form .forgot {
+    color: #33d3de;
+    line-height: 0.5em;
+    position: relative;
+    top: 2.5em;
+    text-decoration: none;
+    font-size: 0.75em;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+.log-form .forgot:hover {
+    color: #1ba0a9;
+}

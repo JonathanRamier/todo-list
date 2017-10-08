@@ -1,0 +1,9 @@
+<div class="log-form">
+    <h2>Connexion</h2>
+    <form [formGroup]="loginForm" novalidate>
+        <input type="text" formControlName="username" placeholder="Username"/>
+        <input type="password" formControlName="password" placeholder="Mot de passe"/>
+        <button type="submit" class="btn" (click)="logInMe()">Connexion</button>
+        <a class="register" href="#" (click)="goToRegistration()">Inscription</a>
+    </form>
+</div>
