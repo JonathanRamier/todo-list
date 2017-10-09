@@ -20,7 +20,8 @@ class TaskSerializerTestCase(TestCase):
         self.assertEqual(serializer.data[0]['name'], "Faire les courses")
 
     def test_serializer_create_task(self):
-        data = {"name": "Aller nager", "status": False, "priority": 1, "author_id": 1}
+        data = {"name": "Aller nager", "status": False,
+                "priority": 1, "author_id": 1}
 
         # saving serializer
         serializer = self.serializer_class(data=data)
@@ -58,7 +59,8 @@ class TaskSerializerTestCase(TestCase):
         self.assertEqual(serializer.data['name'], "Jouer à fifa 2018")
 
     def test_update_task(self):
-        data = {"id": 1, "name": "Acheter une PS4 avec Fifa 18", "status": False, "priority": 1}
+        data = {"id": 1, "name": "Acheter une PS4 avec Fifa 18",
+                "status": False, "priority": 1}
 
         task = Tasks.objects.get(pk=1)
         updated_date = task.updated_at
@@ -74,5 +76,7 @@ class TaskSerializerTestCase(TestCase):
         task = tasks.get(pk=1)
         self.assertEqual(task.priority, 1, "priority is not 1")
         self.assertEqual(task.status, False, "status is not done")
-        self.assertNotEqual(updated_date, task.updated_at, "the updated date not be same")
-        self.assertEqual(created_date, task.created_at, "the creation date must be same")
+        self.assertNotEqual(updated_date, task.updated_at,
+                            "the updated date not be same")
+        self.assertEqual(created_date, task.created_at,
+                         "the creation date must be same")

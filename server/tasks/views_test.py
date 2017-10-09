@@ -37,4 +37,3 @@ class TaskViewTestCase(APITestCase):
         self.assertEqual(task.status, True, "status is not done")
         self.assertIsNotNone(task.updated_at, "update date is not set")
         self.assertIsNotNone(task.created_at, "update date is not set")
-

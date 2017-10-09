@@ -42,8 +42,10 @@ class TaskModelTestCase(TestCase):
         self.assertEqual(tasks.count(), 3)
         last_task = tasks.last()
         self.assertEqual(last_task.name, "Acheter une PS4 avec Fifa 18")
-        self.assertNotEqual(updated_date, last_task.updated_at, "the updated date not be same")
-        self.assertEqual(created_date, last_task.created_at, "the creation date must be same")
+        self.assertNotEqual(updated_date, last_task.updated_at,
+                            "the updated date not be same")
+        self.assertEqual(created_date, last_task.created_at,
+                         "the creation date must be same")
 
     def test_remove_task(self):
         self.tasks.first().delete()

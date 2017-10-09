@@ -12,7 +12,8 @@ class UserSerializer(serializers.Serializer):
         raise NotImplemented
 
     def create(self, validated_data):
-        username = '%s%s' % (validated_data.get('first_name'), validated_data.get('last_name'))
+        username = '%s%s' % (validated_data.get(
+            'first_name'), validated_data.get('last_name'))
         user = User.objects.create_user(
             username=username,
             **validated_data
