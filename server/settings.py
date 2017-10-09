@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'server.core',
     'corsheaders',
 
-    'tasks.apps.TasksConfig',
-    'user.apps.UserConfig',
+    'server.tasks',
+    'server.user',
 ]
 
 FIXTURE_DIRS = [os.path.join(PROJECT_ROOT, 'server', 'fixtures')]

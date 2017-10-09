@@ -43,7 +43,7 @@ export class ToDoAppEffects {
                         return{ type: ACTIONS.REGISTER_USER_SUCCESS };
                     })
                     .catch(() => {
-                        return Observable.of({ type: ACTIONS.REGISTER_USER_FAILED },);
+                        return Observable.of({ type: ACTIONS.REGISTER_USER_FAILED });
                     });
             },
         );

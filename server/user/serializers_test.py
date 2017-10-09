@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-from user.serializers import UserSerializer
+from server.user.serializers import UserSerializer
 
 
 class TaskSerializerTestCase(TestCase):

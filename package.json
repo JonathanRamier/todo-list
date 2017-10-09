@@ -13,7 +13,7 @@
         "lint:server": "autopep8 --in-place server/**/*.py && flake8 server",
         "test:all": "yarn lint && yarn test",
         "test:client": "ng test",
-        "test:server": "python manage.py check && pytest server -vv",
+        "test:server": "python manage.py check && pytest -vv",
         "dev:start": "concurrently \"yarn dev:server\" \"yarn dev:build -- --watch\" \"yarn dev:wds\"",
         "dev:build": "ng build --no-progress --deploy-url http://localhost:4200 --base-href=http://localhost:4200/",
         "dev:wds": "ng serve --hmr --disable-host-check --no-progress --proxy-config proxy.conf.json",

@@ -1,7 +1,7 @@
 from django.utils.text import slugify
 from rest_framework import serializers
 
-from tasks.models import Tasks
+from .models import Tasks
 
 
 class ListTaskSerializer(serializers.ListSerializer):

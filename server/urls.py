@@ -1,11 +1,10 @@
-from django.conf.urls import url, include
-from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token
-
-from tasks.views import TaskViewSets
-from user.views import UserViewSets
-from .core import views
-
+from django.conf.urls import include, url
 from rest_framework import routers
+from rest_framework_jwt.views import obtain_jwt_token
+from .tasks.views import TaskViewSets
+
+from .user.views import UserViewSets
+from .core import views
 
 router = routers.SimpleRouter(trailing_slash=False)
 

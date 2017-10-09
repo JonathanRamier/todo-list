@@ -5,17 +5,17 @@ import { LoginService } from './login.service';
 describe('LoginService', () => {
 
     const name = 'productman.todo.token';
-    this.store = { name: 'kgjhgcdrtdtrrsesdklihuigtydreserfkuy' };
+    let store = { name: 'kgjhgcdrtdtrrsesdklihuigtydreserfkuy' };
 
 
     beforeEach(() => {
-        this.store = { name: 'kgjhgcdrtdtrrsesdklihuigtydreserfkuy' };
+        store = { name: 'kgjhgcdrtdtrrsesdklihuigtydreserfkuy' };
         spyOn(localStorage, 'getItem').and.callFake((key) => {
-            return this.store[key];
+            return store[key];
         });
 
         spyOn(localStorage, 'removeItem').and.callFake((key) => {
-            return this.store[key] = '';
+            return store[key] = '';
         });
     });
 

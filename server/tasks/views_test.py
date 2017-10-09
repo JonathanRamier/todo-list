@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from tasks.models import Tasks
+from server.tasks.models import Tasks
 
 
 class TaskViewTestCase(APITestCase):

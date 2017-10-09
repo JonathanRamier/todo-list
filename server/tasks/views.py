@@ -1,8 +1,8 @@
-from rest_framework import viewsets, status
+from rest_framework import status, viewsets
 from rest_framework.response import Response
+from .models import Tasks
 
-from tasks.models import Tasks
-from tasks.serializers import TaskSerializer
+from .serializers import TaskSerializer
 
 
 class TaskViewSets(viewsets.GenericViewSet):

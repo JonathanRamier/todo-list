@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from tasks.models import Tasks
+from server.tasks.models import Tasks
 
 
 class TaskModelTestCase(TestCase):

@@ -1,7 +1,7 @@
 from django.test import TestCase
+from .models import Tasks
 
-from tasks.models import Tasks
-from tasks.serializers import TaskSerializer
+from server.tasks.serializers import TaskSerializer
 
 
 class TaskSerializerTestCase(TestCase):
