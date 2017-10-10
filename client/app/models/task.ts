@@ -1,10 +1,8 @@
-import { Priority } from '../enums/priority.enum';
-
 /**
  * Model Task
  */
 export class Task {
+    id: number;
     name: string;
     status: boolean;
-    priority: Priority;
 }
