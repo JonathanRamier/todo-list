@@ -1,11 +1,26 @@
 <div class="task">
-    <div class="col-md-10">
-        <input type="text" name="task">
+    <div class="task-todo">
+        <form id="todo-form" autocomplete="off">
+            <input placeholder="What needs to be done?" autocomplete="off" [(ngModel)]="newTodo" name="newTodo"
+                   (keyup.enter)="addTodo(newTodo)" id="new-todo" autofocus=""/>
+        </form>
     </div>
-    <div class="col-md-1">
-        <a class="btn btn-primary">
-            <i class="fa-plus fa"></i>Add
-        </a>
-    </div>
+    <app-task [tasks]=tasks></app-task>
+    <footer id="footer" *ngIf="hasTask" class="">
+        <span id="todo-count"><strong>{{ taskNumber }}</strong> items left</span>
+        <ul id="filters">
+            <li>
+                <button [ngClass]="{selected: status == ''} " (click)="allTask()">All</button>
+            </li>
+            <li>
+                <button [ngClass]="{selected: status == 'active'}" (click)="inActiveTask()">Active</button>
+            </li>
+            <li>
+                <button [ngClass]="{selected: status == 'completed'}" (click)="activeTask()">Completed</button>
+            </li>
+        </ul>
+        <button id="clear-completed" (click)="clearCompletedTasks()" [hidden]="completedCount">
+            Clear completed
+        </button>
+    </footer>
 </div>
-<app-task></app-task>

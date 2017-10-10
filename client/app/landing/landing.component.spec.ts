@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LandingComponent } from './landing.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../reducers';
 
 describe('LandingComponent', () => {
     let component: LandingComponent;
@@ -9,8 +12,11 @@ describe('LandingComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [LandingComponent],
-        })
-            .compileComponents();
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            imports: [
+                StoreModule.forRoot(reducers),
+            ],
+        }).compileComponents();
     }));
 
     beforeEach(() => {

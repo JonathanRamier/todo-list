@@ -1,35 +1,120 @@
 .task {
-    padding: 8px 14px;
-    min-height: 55px;
-    background-color: transparent;
-    border-bottom: 0.5px solid #e6ecf5;
-    width: 100%;
-    height: 55px;
-
-    &:last-child {
-        border-bottom: 0;
-    }
+    background: #fff;
+    margin: 130px 0 40px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
-.btn {
-    width: 90px;
-    background-color: #1099ee;
+#new-todo {
+    padding: 16px 16px 16px 60px;
     border: 0;
-
-    i {
-        margin-right: 10px;
-    }
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 }
 
-input {
-    width: 100%;
+label[for='toggle-all'] {
+    display: none;
+}
+
+#toggle-all {
+    position: absolute;
+    top: -55px;
+    left: -12px;
+    width: 60px;
     height: 34px;
-    border: 0;
-    outline: none;
-    font-size: 25px;
-    transition: border 0.2s ease-in-out;
-
-    &:focus {
-        border-bottom: 3px solid #1099ee;
-    }
+    text-align: center;
 }
+
+#new-todo,
+.edit {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 30px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    outline: none;
+    color: inherit;
+    padding: 6px;
+    border: 0;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.edit {
+    display: none;
+}
+
+#footer {
+    color: #777;
+    padding: 10px 15px;
+    height: 50px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+}
+
+#footer::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+#todo-count {
+    float: left;
+    text-align: left;
+}
+
+#todo-count strong {
+    font-weight: 300;
+}
+
+#filters {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+#filters li {
+    display: inline;
+}
+
+#filters li a {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+#filters li a.selected,
+#filters li a:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+}
+
+#filters li a.selected {
+    border-color: rgba(175, 47, 47, 0.2);
+}
+
+#clear-completed,
+html #clear-completed:active {
+    float: right;
+    position: relative;
+    line-height: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#clear-completed:hover {
+    text-decoration: underline;
+}
+

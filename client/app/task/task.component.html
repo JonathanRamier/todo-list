@@ -1,16 +1,15 @@
-<div class="task">
-    <div class="col-md-1">
-        <label class="control control--checkbox">
-            <input type="checkbox" checked="checked"/>
-            <div class="control__indicator"></div>
-        </label>
-    </div>
-    <div class="col-md-9">
-        <input type="text" name="task" readonly="readonly">
-    </div>
-    <div class="col-md-1">
-        <a>
-            <i class="fa-close fa"></i>
-        </a>
-    </div>
-</div>
+<ul id="todo-list" *ngIf="tasks">
+    <li *ngFor="let task of tasks" [ngClass]="{completed: task.status, editing: task == editedTask}">
+        <div class="view">
+            <input title="status" [checked]="task.status" class="toggle" type="checkbox" ([ngModel])="task.status" (change)="toggleStatus(task)">
+            <label (dblclick)="editTask(task)">{{ task.name }}</label>
+            <button class="destroy" (click)="removeTask(task)"></button>
+        </div>
+        <form (submit)="saveEdits(task, 'submit')">
+            <input [(ngModel)]="task.name" value="{{ task.name }}" name="name" title="edit" class="edit"
+                   (keyup.escape)="revertEdits(task)"
+                   (blur)="saveEdits(task, 'blur')"
+                   (focus)="task == editedTask">
+        </form>
+    </li>
+</ul>

@@ -1,9 +1,8 @@
 from django.conf.urls import include, url
 from rest_framework import routers
-from rest_framework_jwt.views import obtain_jwt_token
 from .tasks.views import TaskViewSets
 
-from .user.views import UserViewSets
+from .user.views import UserViewSets, login_user, logout_user
 from .core import views
 
 router = routers.SimpleRouter(trailing_slash=False)
@@ -14,5 +13,6 @@ router.register(r'users', UserViewSets, base_name='user_view')
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^', include(router.urls)),
-    url(r'^oauth/token', obtain_jwt_token),
+    url(r'^login$', login_user),
+    url(r'^logout$', logout_user),
 ]

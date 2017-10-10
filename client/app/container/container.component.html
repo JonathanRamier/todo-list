@@ -1,8 +1,9 @@
-<app-header></app-header>
 <div class="container">
     <div class="row">
-        <div class="col-lg-offset-2 col-lg-8 col-xs-12">
-            <app-card></app-card>
+        <h1>todos</h1>
+        <div class="text-center">
+            <button (click)="signOut()" class="btn btn-danger">Déconnexion</button>
         </div>
+        <app-task-list [tasks]="tasks$ | async" class="col-lg-offset-2 col-md-8"></app-task-list>
     </div>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AUTHENTICATE_USER, REGISTER_USER_PAGE } from '../reducers/user';
+import * as USER_ACTION from '../actions/user.actions';
 
 @Component({
     selector: 'app-login',
@@ -22,13 +22,13 @@ export class LoginComponent implements OnInit {
     }
 
     goToRegistration() {
-        this.store.dispatch({ type: REGISTER_USER_PAGE });
+        this.store.dispatch(new USER_ACTION.GoToRegistrationPageAction());
     }
 
     logInMe() {
         if (this.loginForm.valid) {
             const login = this.loginForm.value;
-            this.store.dispatch({ type: AUTHENTICATE_USER, payload: login });
+            this.store.dispatch(new USER_ACTION.AuthenticateUserAction(login));
         }
     }
 

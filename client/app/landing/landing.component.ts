@@ -1,31 +1,22 @@
-import { Component, OnDestroy } from '@angular/core';
-import { AppState } from '../reducers/user';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-landing',
     templateUrl: './landing.component.html',
     styleUrls: ['./landing.component.scss'],
 })
-export class LandingComponent implements OnDestroy {
-
-    user$: Subscription;
-    isSignInPage: boolean = true;
-
+export class LandingComponent implements OnInit {
+    
+    isSignInPage$: Observable<boolean>;
+    
     constructor(private store: Store<any>) {
-        this.user$ = store.select('user')
-            .subscribe((state: AppState) => {
-                if (state === null) {
-                    this.isSignInPage = true;
-                } else if (state.hasOwnProperty('isRegistrationUserPage')) {
-                    this.isSignInPage = !state.isRegistrationUserPage;
-                }
-            });
+        this.isSignInPage$ = this.store.select((state) => state.user.isRegistrationUserPage);
     }
-
-    ngOnDestroy() {
-        this.user$.unsubscribe();
+    
+    ngOnInit() {
+    
     }
-
+    
 }

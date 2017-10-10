@@ -17,11 +17,10 @@ class TaskModelTestCase(TestCase):
         self.assertEqual(self.tasks.first().name, "Faire les courses")
 
     def test_create_task(self):
-        Tasks.objects.create(name="Ecrire des tests", priority=2, author_id=1)
+        Tasks.objects.create(name="Ecrire des tests", author_id=1)
         tasks = Tasks.objects.all()
         self.assertEqual(tasks.count(), 4)
         task = tasks.get(name='Ecrire des tests')
-        self.assertEqual(task.priority, 2, "priority is not 2")
         self.assertEqual(task.status, False, "status is not done")
         self.assertIsNotNone(task.updated_at, "update date is not set")
         self.assertIsNotNone(task.created_at, "update date is not set")

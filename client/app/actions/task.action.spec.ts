@@ -30,16 +30,6 @@ describe('Task Actions', () => {
     });
     
     
-    it('should close a Task Action', () => {
-        const task = new Task();
-        task.name = 'hello';
-        task.status = false;
-        const action = new Actions.DoneTaskAction(task);
-        expect(action.type).toBe('TASK DONE');
-        expect(action.payload).toBe(task);
-    });
-    
-    
     it('should remove a Task Action', () => {
         const task = new Task();
         task.name = 'hello';

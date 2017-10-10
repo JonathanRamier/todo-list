@@ -1,4 +1,4 @@
 <div class="page">
-    <app-login [ngClass]="{'hide': !isSignInPage}"></app-login>
-    <app-register [ngClass]="{'hide': isSignInPage}"></app-register>
+    <app-login [ngClass]="{'hide': isSignInPage$ | async}"></app-login>
+    <app-register [ngClass]="{'hide': !(isSignInPage$ | async) }"></app-register>
 </div>

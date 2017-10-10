@@ -61,4 +61,15 @@ export class TaskStore {
             .map((res: Response, status: number) => res.text())
             .catch((fail) => Observable.throw(fail));
     }
+    
+    saveTask(): Observable<any> {
+        return this.http
+            .post(
+                this.urlSettings.getUrl(`tasks/save`),
+                [],
+                this.urlSettings.generateOptions(true),
+            )
+            .map((res: Response, status: number) => res.text())
+            .catch((fail) => Observable.throw(fail));
+    }
 }
