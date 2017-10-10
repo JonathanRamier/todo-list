@@ -42,6 +42,7 @@ describe('UserStore', () => {
                 // call mock respond of the connection
                 // send in a Response Object
                 expect(connection.request.url).toContain('login');
+                expect(connection.request.method).toBe(1);
                 expect(connection.request.getBody()).toBe(
                     JSON.stringify({ username: 'login', password: 'password' }, null, '  '),
                 );
@@ -64,7 +65,35 @@ describe('UserStore', () => {
         }),
     );
     
-    it('should be register', inject([UserStore], (service: UserStore) => {
-        expect(service).toBeTruthy();
-    }));
+    
+    it('should register user', inject(
+        [UserStore, XHRBackend], (service: UserStore, mockBacked: MockBackend) => {
+            
+            // subscribe to connections to mock backend
+            mockBacked.connections.subscribe((connection: MockConnection) => {
+                // call mock respond of the connection
+                // send in a Response Object
+                expect(connection.request.url).toContain('login');
+                expect(connection.request.method).toBe(1);
+                expect(connection.request.getBody()).toBe(
+                    JSON.stringify({ username: 'login', password: 'password' }, null, '  '),
+                );
+                connection.mockRespond(
+                    new Response(
+                        // pass in new isntance of Response Options
+                        new ResponseOptions({
+                            body: { ...mockData },
+                        }),
+                    ),
+                );
+            });
+            
+            
+            service.authenticateUser('login', 'password').subscribe(
+                (data: any) => {
+                    expect(service).toBeTruthy();
+                },
+            );
+        }),
+    );
 });

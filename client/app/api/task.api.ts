@@ -43,18 +43,20 @@ export class TaskStore {
     }
     
     updateTask(id: number, tasks: Task): Observable<Task> {
-        return this.http.post(
-            this.urlSettings.getUrl(`tasks/${id}`), tasks,
-            this.urlSettings.generateOptions(false),
+        return this.http
+            .put(
+                this.urlSettings.getUrl(`tasks/${id}`), tasks,
+                this.urlSettings.generateOptions(false),
             )
             .map((res: Response, status: number) => res.json() as Task)
             .catch((fail) => Observable.throw(fail));
     }
     
     removeTask(id: number, tasks: Task): Observable<any> {
-        return this.http.post(
-            this.urlSettings.getUrl(`tasks/${id}`), tasks,
-            this.urlSettings.generateOptions(false),
+        return this.http
+            .delete(
+                this.urlSettings.getUrl(`tasks/${id}`),
+                this.urlSettings.generateOptions(false),
             )
             .map((res: Response, status: number) => res.text())
             .catch((fail) => Observable.throw(fail));

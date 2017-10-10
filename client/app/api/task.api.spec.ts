@@ -72,6 +72,7 @@ describe('TaskStore', () => {
                 // call mock respond of the connection
                 // send in a Response Object
                 expect(connection.request.url).toContain('tasks');
+                expect(connection.request.method).toBe(1);
                 expect(connection.request.getBody()).toBe(
                     JSON.stringify({ name: 'creation 1' }, null, '  '),
                 );
@@ -105,6 +106,7 @@ describe('TaskStore', () => {
                 // call mock respond of the connection
                 // send in a Response Object
                 expect(connection.request.url).toContain('tasks/1');
+                expect(connection.request.method).toBe(2);
                 expect(connection.request.getBody()).toBe(
                     JSON.stringify({ id: 1, name: 'Hello 0', status: false }, null, '  '),
                 );
@@ -136,9 +138,8 @@ describe('TaskStore', () => {
                 // call mock respond of the connection
                 // send in a Response Object
                 expect(connection.request.url).toContain('tasks/1');
-                expect(connection.request.getBody()).toBe(
-                    JSON.stringify({ id: 1, name: 'Video 0', status: false }, null, '  '),
-                );
+                expect(connection.request.method).toBe(3);
+                expect(connection.request.getBody()).toBe('');
                 connection.mockRespond(
                     new Response(
                         // pass in new isntance of Response Options
