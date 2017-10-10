@@ -3,13 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { AppService } from '../app.service';
 import { Http, Response } from '@angular/http';
-import { Token } from '../models/token';
 import { Task } from 'app/models/task';
 
 
 @Injectable()
 export class TaskStore {
-
+    
     /**
      * Creates an instance of UserStore.
      *
@@ -19,27 +18,45 @@ export class TaskStore {
     constructor(private http: Http,
                 private urlSettings: AppService) {
     }
-
+    
     /**
      * fetch the Json web token
      *
      * @return {Observable<UserToken>}
      */
-    getTaskList(email: string, password: string): Observable<Token> {
-        return this.http.post(
-            this.urlSettings.getUrl('tasks'), { email, password },
+    getTaskList(): Observable<Task[]> {
+        return this.http.get(
+            this.urlSettings.getUrl('tasks'),
             this.urlSettings.generateOptions(false),
-        )
-        .map((res: Response, status: number) => res.json() as Token)
-        .catch((fail) => Observable.throw(fail));
+            )
+            .map((res: Response, status: number) => res.json() as Task[])
+            .catch((fail) => Observable.throw(fail));
     }
     
-    updateTaskList(tasks: Task[]): Observable<Task[]> {
+    createTask(name: string): Observable<Task> {
         return this.http.post(
-            this.urlSettings.getUrl('tasks'), tasks,
+            this.urlSettings.getUrl('tasks'), { name },
             this.urlSettings.generateOptions(false),
-        )
-        .map((res: Response, status: number) => res.json() as Task)
-        .catch((fail) => Observable.throw(fail));
+            )
+            .map((res: Response, status: number) => res.json() as Task)
+            .catch((fail) => Observable.throw(fail));
+    }
+    
+    updateTask(id: number, tasks: Task): Observable<Task> {
+        return this.http.post(
+            this.urlSettings.getUrl(`tasks/${id}`), tasks,
+            this.urlSettings.generateOptions(false),
+            )
+            .map((res: Response, status: number) => res.json() as Task)
+            .catch((fail) => Observable.throw(fail));
+    }
+    
+    removeTask(id: number, tasks: Task): Observable<any> {
+        return this.http.post(
+            this.urlSettings.getUrl(`tasks/${id}`), tasks,
+            this.urlSettings.generateOptions(false),
+            )
+            .map((res: Response, status: number) => res.text())
+            .catch((fail) => Observable.throw(fail));
     }
 }

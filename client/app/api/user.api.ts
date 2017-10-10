@@ -7,7 +7,7 @@ import { Token } from '../models/token';
 
 
 @Injectable()
-export class AuthStore {
+export class UserStore {
 
   /**
      * Creates an instance of UserStore.
@@ -24,12 +24,12 @@ export class AuthStore {
      *
      * @return {Observable<UserToken>}
      */
-    authenticateUser(username: string, password: string): Observable<Token> {
+    authenticateUser(username: string, password: string): Observable<any> {
         return this.http.post(
-            this.urlSettings.getUrl('oauth/token'), { username, password },
+            this.urlSettings.getUrl('login'), { username, password },
             this.urlSettings.generateOptions(false),
             )
-            .map((res: Response, status: number) => res.json() as Token)
+            .map((res: Response, status: number) => res.json())
             .catch((fail) => Observable.throw(fail));
     }
     
